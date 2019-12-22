@@ -12,8 +12,22 @@ tts:
   
 scene:
   platform: hunterdouglas_powerview
-  address: 192.168.1.28
+  address: !secret powerview_ip
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+input_select: !include input_select.yaml
+
+media_player:
+  - platform: webostv
+    host: !secret living_room_tv_ip
+    name: Living Room TV
+    filename: webostv.conf
+    timeout: 5
+    
+notify:
+  - platform: webostv
+    host: !secret living_room_tv_ip
+    name: living_room_tv
+    filename: webostv.conf

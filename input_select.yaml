@@ -1,0 +1,10 @@
+tv_mode:
+  name: TV Watching Mode
+  options:
+    - Disney
+    - Netflix
+    - Football
+    - Hockey
+    - TV
+  initial: TV
+  icon: mdi:television-clean

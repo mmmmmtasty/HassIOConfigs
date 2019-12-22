@@ -1,0 +1,10 @@
+office_stairs:
+    name: Office Stairs
+    entities: 
+        - light.office_1
+office:
+    name: Office
+    entities:
+        - light.office_2        
+        - light.office_3
+        - light.office_4
