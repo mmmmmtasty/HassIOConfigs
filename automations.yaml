@@ -64,3 +64,23 @@
       data:
         entity_id: light.living_room
         rgb_color: [255,137,32]
+        
+- alias: Turn TV lights to white if Chromecast is selected and nothing is playing
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_chromecast
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ is_state_attr('media_player.living_room_tv', 'source', 'HDMI4')}}"
+  action:
+    - service: light.turn_on
+      data: 
+        entity_id: light.living_room
+        rgb_color: [207,191,255]
+    - service: light.turn_on
+      data: 
+        entity_id: light.living_room
+        rgb_color: [207,191,255]
