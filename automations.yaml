@@ -49,8 +49,12 @@
     entity_id: media_player.living_room_chromecast
     to: 'playing'
   condition:
-    - condition: template
-      value_template: "{{ 'Flyers' in state_attr('media_player.living_room_chromecast', 'media_title') }}"
+    condition: or
+    conditions:
+      - condition: template
+        value_template: "{{ 'Flyers' in state_attr('media_player.living_room_chromecast', 'media_title') }}"
+      - condition: template
+        value_template: "{{ is_state_attr('media_player.living_room_chromecast', 'app_name', 'Chrome Mirroring') }}"
   action:
     - service: light.turn_on
       data:
